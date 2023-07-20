@@ -12,6 +12,8 @@ def pow(a, b):
         b >>= 1
 
     return result
+pow = __import__('1-power').pow
+
 result = pow(2, 2)
 print(result) 
 

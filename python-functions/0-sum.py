@@ -1,7 +1,10 @@
 def add(a, b):
-    return a + b
-add = __import__('0-sum').add
+    # Handle negative numbers correctly
+    if b >= 0:
+        while b:
+            a, b = a ^ b, (a & b) << 1
+    else:
+        while b:
+            a, b = a ^ b, ((~a) & b) << 1
+    return a
 
-print(add(1, 2))
-print(add(98, 0))
-print(add(100, -2))
