@@ -1,10 +1,9 @@
-
 def raise_exception_msg(message=""):
     raise NameError(message)
 
 try:
-    raise_exception_msg("This is a name exception.")
+    raise_exception_msg("Python is cool")
 except NameError as ne:
     print("Exception raised:", ne)
 
-print("C is fun")
+print("Python is cool")
