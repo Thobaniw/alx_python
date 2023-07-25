@@ -4,6 +4,7 @@ def raise_exception():
   if __name__ == "__main__":
     raise TypeError("This is a type exception.")
 
+raise_exception()
 
 
 
