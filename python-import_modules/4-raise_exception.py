@@ -1,2 +1,2 @@
 def raise_expectation():
-    raise TypeError("This is a type exception")
+    raise TypeError("Exception has been raised")
