@@ -1,10 +1,11 @@
 def raise_exception():
-  """Raises a type exception."""
-
-  if __name__ == "__main__":
     raise TypeError("This is a type exception.")
 
-raise_exception()
+try:
+    raise_exception()
+except TypeError as te:
+    print("Exception raised")
+
 
 
 
