@@ -9,15 +9,3 @@ try:
 except NameError as ne:
     print(ne)
 
-try:
-    # Test case 2: message = "Python is cool"
-    raise_exception_msg("Python is cool")
-except NameError as ne:
-    print(ne)
-
-try:
-    # Test case 3: message = ""
-    raise_exception_msg("")
-except NameError as ne:
-    print(ne)
-

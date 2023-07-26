@@ -1,9 +1,10 @@
-def raise_exception_msg(message=""):
-    raise NameError(message)
+def raise_exception_msg(msg):
+    if not msg:
+        raise NameError
+    raise NameError(msg)
 
 try:
-    raise_exception_msg()
+    # Test case 3: message = ""
+    raise_exception_msg("")
 except NameError as ne:
-    print("Exception raised:", ne)
-
-print()
+    print(ne)
