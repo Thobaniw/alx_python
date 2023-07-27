@@ -1,7 +1,13 @@
+
 def print_matrix_integer(matrix=[[]]):
     # Get the number of rows and columns in the matrix
     num_rows = len(matrix)
     num_cols = len(matrix[0]) if matrix else 0
+
+    if num_rows == 0 or num_cols == 0:
+        # Handle the case of an empty matrix
+        print("Matrix is empty.")
+        return
 
     # Calculate the maximum width of each cell to format the output
     max_width = max(len("{:d}".format(matrix[i][j])) for i in range(num_rows) for j in range(num_cols))
@@ -17,11 +23,4 @@ def print_matrix_integer(matrix=[[]]):
                 # Print a space between elements in the same row
                 print(" ", end="")
         print()
-
-
-
-
-
-
-
 
