@@ -16,13 +16,7 @@ def print_matrix_integer(matrix=[[]]):
         # Move to the next row after printing all elements in the current row
         print()
 
-# Example usage:
-matrix = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-print_matrix_integer(matrix)
+
 
 
 
