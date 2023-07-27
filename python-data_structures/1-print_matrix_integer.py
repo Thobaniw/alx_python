@@ -6,7 +6,7 @@ def print_matrix_integer(matrix=[[]]):
 
     if num_rows == 0 or num_cols == 0:
         # Handle the case of an empty matrix
-        print("Matrix is empty.")
+        print()
         return
 
     # Calculate the maximum width of each cell to format the output
