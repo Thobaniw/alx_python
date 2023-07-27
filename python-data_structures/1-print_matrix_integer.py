@@ -10,10 +10,20 @@ def print_matrix_integer(matrix=[[]]):
     for i in range(num_rows):
         for j in range(num_cols):
             # Format each element and align them to the right
-            cell = "{:>{width}d}".format(matrix[i][j], width=max_width)
+            cell = "{:>{width}}".format(matrix[i][j], width=max_width)
             # Print the cell without a newline to keep elements in the same row
             print(cell, end=" ")
+        # Move to the next row after printing all elements in the current row
         print()
+
+# Example usage:
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+print_matrix_integer(matrix)
+
 
 
 
