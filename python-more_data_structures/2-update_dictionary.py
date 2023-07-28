@@ -1,7 +1,9 @@
 def update_dictionary(a_dictionary, key, value):
-    new_dict = dict(a_dictionary)  # copy of the original dictionary
-    new_dict[key] = value
-    return new_dict
+    a_dictionary[key] = value
+    for k, v in a_dictionary.items():
+        print(f"{k}: {v}")
+    print("xx")
+    return a_dictionary
 
 
 # Test cases
