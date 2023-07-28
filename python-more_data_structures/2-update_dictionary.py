@@ -16,10 +16,16 @@ def update_dictionary(a_dictionary, key, value):
         a_dictionary[key] = value
 
 
-a_dictionary = {'a': 'a', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e'}
+def main():
+    a_dictionary = {'a': 'a', 'b': 'b', 'c': 'c', 'd': 'd', 'e': 'e'}
 
-update_dictionary(a_dictionary, 'a', 'A')
-update_dictionary(a_dictionary, 'f', 'F')
+    update_dictionary(a_dictionary, 'a', 'A')
 
-for key, value in a_dictionary.items():
-    print(f'{key}: {value}')
+    print('xx')
+
+    for key, value in a_dictionary.items():
+        print(f'{key}: {value}')
+
+
+if __name__ == '__main__':
+    main()
