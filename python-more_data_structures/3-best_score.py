@@ -3,17 +3,14 @@ def best_score(a_dictionary):
     if not a_dictionary:
         return None
 
-    max_value = None
-    max_key = None
+    # Sort the dictionary items by values in descending order
+    sorted_items = sorted(a_dictionary.items(),
+                          key=lambda item: item[1], reverse=True)
 
-    # Iterate through the dictionary to find the key with the biggest integer value
-    for key, value in a_dictionary.items():
-        if isinstance(value, int):
-            if max_value is None or value > max_value:
-                max_value = value
-                max_key = key
+    # Get the student with the highest score
+    best_student = sorted_items[0][0]
 
-    return max_key
+    return best_student
 
 
 # Test case
