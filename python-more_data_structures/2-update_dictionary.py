@@ -8,9 +8,9 @@ def update_dictionary(a_dictionary, key, value):
 
 # Test cases
 a_dictionary = {'a': "a", 'b': "b", 'c': "c", 'd': "d", 'e': "e"}
-print(update_dictionary(a_dictionary, "a", "A"))
-print(update_dictionary(a_dictionary, "e", "E"))
-print(update_dictionary(a_dictionary, "a", 89))
-print(update_dictionary(a_dictionary, "e", [1, 2, 3]))
-print(update_dictionary(a_dictionary, "f", "A"))
-print(update_dictionary({}, "a", "a"))
+update_dictionary(a_dictionary.copy(), "a", "A")
+update_dictionary(a_dictionary.copy(), "e", "E")
+update_dictionary(a_dictionary.copy(), "a", 89)
+update_dictionary(a_dictionary.copy(), "e", [1, 2, 3])
+update_dictionary(a_dictionary.copy(), "f", "A")
+update_dictionary({}, "a", "a")
