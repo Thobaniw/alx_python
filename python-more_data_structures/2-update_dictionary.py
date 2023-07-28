@@ -3,7 +3,11 @@ def update_dictionary(a_dictionary, key, value):
     return a_dictionary
 
 
-# Examples
-my_dict = {"name": "John", "age": 30}
-print(update_dictionary(my_dict, "name", "Alice"))
-print(update_dictionary(my_dict, "city", "New York"))
+# Test cases
+a_dictionary = {'a': "a", 'b': "b", 'c': "c", 'd': "d", 'e': "e"}
+print(update_dictionary(a_dictionary, "a", "A"))
+print(update_dictionary(a_dictionary, "e", "E"))
+print(update_dictionary(a_dictionary, "a", 89))
+print(update_dictionary(a_dictionary, "e", [1, 2, 3]))
+print(update_dictionary(a_dictionary, "f", "A"))
+print(update_dictionary({}, "a", "a"))
