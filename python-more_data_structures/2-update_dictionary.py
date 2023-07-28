@@ -1,6 +1,7 @@
 def update_dictionary(a_dictionary, key, value):
-    a_dictionary[key] = value
-    return a_dictionary
+    new_dict = dict(a_dictionary)  # copy of the original dictionary
+    new_dict[key] = value
+    return new_dict
 
 
 # Test cases
