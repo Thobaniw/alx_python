@@ -16,15 +16,7 @@ def best_score(a_dictionary):
     return max_key
 
 
-# Test cases
-# Example 1
-a_dictionary1 = {'John': 90, 'Alice': 85, 'Bob': 95, 'Eva': 88}
-print(best_score(a_dictionary1))  # Output: 'Bob'
-
-# Example 2
-a_dictionary2 = {'Math': 75, 'History': 92, 'English': 83}
-print(best_score(a_dictionary2))  # Output: 'History'
-
-# Example 3 (Empty dictionary)
-a_dictionary3 = {}
-print(best_score(a_dictionary3))  # Output: None
+# Test case
+my_dict = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
+best_student = best_score(my_dict)
+print(f"Best: {best_student}")
