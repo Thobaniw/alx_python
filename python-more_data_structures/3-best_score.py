@@ -1,19 +1,18 @@
 def best_score(a_dictionary):
-    # Check if the dictionary is empty
+    # Check if the dictionary is empty or None
     if not a_dictionary:
         return None
 
-    # Sort the dictionary items by values in descending order
-    sorted_items = sorted(a_dictionary.items(),
-                          key=lambda item: item[1], reverse=True)
+    # Find the key with the maximum value (score)
+    max_key = max(a_dictionary, key=a_dictionary.get)
 
-    # Get the student with the highest score
-    best_student = sorted_items[0][0]
-
-    return best_student
+    return max_key
 
 
-# Test case
-my_dict = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
-best_student = best_score(my_dict)
-print(f"Best: {best_student}")
+# Test cases
+a_dictionary = {'John': 12, 'Bob': 14, 'Mike': 14, 'Molly': 16, 'Adam': 10}
+best_key = best_score(a_dictionary)
+print("Best score: {}".format(best_key))
+
+best_key = best_score(None)
+print("Best score: {}".format(best_key))
