@@ -3,7 +3,7 @@ Geometry module
 '''
 
 
-class BaseGeometry:
+class BaseGeometry(object):
     """
     This is an empty class representing a base geometry.
     """
