@@ -1,3 +1,8 @@
+'''
+Square with size
+'''
+
+
 class Square:
     """
     This class defines a square.
