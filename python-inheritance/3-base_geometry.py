@@ -10,5 +10,4 @@ class BaseGeometry(object):
     pass
 
 
-bg = BaseGeometry()
-print(dir(bg))
+print(dir(BaseGeometry))
