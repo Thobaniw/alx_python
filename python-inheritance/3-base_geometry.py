@@ -1,19 +1,10 @@
 '''
 Geometry module
 '''
-"""
-BaseGeometry class
-
-This is an empty class that defines a base geometry object.
-
-Attributes:
-    None
-
-Methods:
-    None
-"""
 
 
-class BaseGeometry:
-
+class BaseGeometry(object):
+    """
+    This is an empty class representing a base geometry.
+    """
     pass
