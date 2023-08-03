@@ -19,7 +19,3 @@ class BaseGeometry:
         Exception: Always raises an exception with the specified message.
         """
         raise Exception("area() is not implemented")
-
-
-bg = BaseGeometry()
-print(dir(bg))
