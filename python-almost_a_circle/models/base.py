@@ -1,3 +1,11 @@
+"""
+This module contains the base class for managing id attributes in all other classes.
+
+Classes:
+    Base: The base class with methods to manage id attributes.
+"""
+
+
 class Base:
     """
     The base class for managing id attributes in all other classes.
