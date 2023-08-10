@@ -1,5 +1,3 @@
-# In models/base.py
-
 class Base:
     """
     The base class for managing id attributes in all other classes.
