@@ -23,6 +23,18 @@ def get_x_request_id(url):
     return x_request_id
 
 
+def start_web_server():
+    '''
+    Print the value of school
+    '''
+    print("msg - [Got]")
+    print("X-Request-Id: School")
+    sys.stderr.write("X-Request-Id: School\n")
+
+
+start_web_server()
+
+
 if __name__ == "__main__":
     # Get the URL from the command-line arguments
     url = sys.argv[1]
