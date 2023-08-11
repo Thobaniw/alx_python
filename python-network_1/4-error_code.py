@@ -24,6 +24,7 @@ def fetch_and_display(url):
         if response.status_code >= 400:
             print("Error code:", response.status_code)
         else:
+            print("Regular request")
             print(response.text)
     except requests.exceptions.RequestException as e:
         print("Error:", e)
