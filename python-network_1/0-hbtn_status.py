@@ -1,26 +1,29 @@
-# Import the `requests` package
 import requests
+
+
+def fetch_and_display_status(url):
+    """
+    Fetches the status from the given URL and displays the response content.
+
+    Args:
+        url (str): The URL to fetch the status from.
+
+    Returns:
+        None
+    """
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        data = response.json()
+        print("Body response:")
+        print("\t- type:", type(data))
+        print("\t- content:", data)
+    else:
+        print("Error:", response.status_code)
+
 
 # Define the URL you want to fetch
 url = "https://alu-intranet.hbtn.io/status"
 
-# Send a GET request to the URL using the `requests.get()` function
-response = requests.get(url)
-
-# Check if the response status code is 200 (OK)
-if response.status_code == 200:
-    # If the status code is 200, assume the response content is in JSON format
-    # Parse the response content as JSON using the `.json()` method
-    data = response.json()
-
-    # Print a header for the response body
-    print("Body response:")
-
-    # Display the data type of the response content
-    print("\t- type:", type(data))
-
-    # Display the entire content of the response
-    print("\t- content:", data)
-else:
-    # If the status code is not 200, print an error message along with the status code
-    print("Error:", response.status_code)
+# Call the function to fetch and display the status
+fetch_and_display_status(url)
