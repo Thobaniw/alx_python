@@ -26,9 +26,9 @@ def fetch_github_id(username, password):
         response = requests.get(url, headers=headers)
         if response.status_code == 200:
             user_info = response.json()
-            print("GitHub ID:", user_info.get('id'))
+            print(user_info.get('id'))
         else:
-            print("Error: Unable to fetch user information.")
+            print("None")
     except requests.exceptions.RequestException as e:
         print("Error:", e)
 
