@@ -1,4 +1,7 @@
 import requests
+'''
+import the request to be able to access get
+'''
 
 
 def fetch_and_display_status(url):
