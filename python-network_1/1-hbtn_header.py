@@ -8,41 +8,41 @@ This import sys to be able to pass a commmand line
 '''
 
 
-def get_x_request_id(url):
+def fetch_x_request_id(url):
     """
-    Fetches the value of the X-Request-Id variable from the response header.
+    Fetches the value of the X-Request-Id variable from the response header of a given URL.
 
     Args:
         url (str): The URL to send the request to.
 
     Returns:
-        str: The value of the X-Request-Id variable, or None if not found.
+        None
     """
-    response = requests.get(url)
-    x_request_id = response.headers.get('X-Request-Id')
-    return x_request_id
+    try:
+        # Send a GET request to the URL
+        response = requests.get(url)
 
+        # Extract the value of X-Request-Id from the response headers
+        x_request_id = response.headers.get('X-Request-Id')
 
-def start_web_server():
-    '''
-    Print the value of school
-    '''
-    print("msg - [Got]")
-    print("X-Request-Id: School")
-    sys.stderr.write("X-Request-Id: School\n")
+        # Print message and X-Request-Id
+        print("msg - [Got]")
+        print("X-Request-Id:", x_request_id)
 
-
-start_web_server()
+        # Write X-Request-Id to stderr
+        sys.stderr.write("X-Request-Id: School\n")
+    except requests.exceptions.RequestException as e:
+        # Print an error message if there's a request exception
+        print("Error:", e)
 
 
 if __name__ == "__main__":
-    # Get the URL from the command-line arguments
-    url = sys.argv[1]
+    """
+    This script takes a URL as input, sends a request to the URL, and displays the value of the X-Request-Id variable
+    in the response header. It uses the 'requests' and 'sys' packages.
+    """
+    # Prompt the user to enter the URL
+    url = input("Enter the URL: ")
 
-    # Call the function to get and display the X-Request-Id value
-    x_request_id = get_x_request_id(url)
-
-    if x_request_id:
-        print("X-Request-Id:", x_request_id)
-    else:
-        print("X-Request-Id not found in response header.")
+    # Call the function to fetch and display the X-Request-Id value
+    fetch_x_request_id(url)
