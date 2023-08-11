@@ -23,18 +23,18 @@ def search_user_with_letter(letter):
 
     try:
         response = requests.post(url, data=data)
-        json_data = response.json()
-
-        if json_data:
-            user_info = "[{}] {}".format(
-                json_data.get('id'), json_data.get('name'))
-            print(user_info)
-        else:
-            print("No result")
+        try:
+            json_data = response.json()
+            if json_data:
+                user_info = "[{}] {}".format(
+                    json_data.get('id'), json_data.get('name'))
+                print(user_info)
+            else:
+                print("No result")
+        except ValueError:
+            print("Not a valid JSON")
     except requests.exceptions.RequestException as e:
         print("Error:", e)
-    except ValueError:
-        print("Not a valid JSON")
 
 
 if __name__ == "__main__":
