@@ -1,3 +1,4 @@
+
 import MySQLdb
 import sys
 
@@ -17,8 +18,9 @@ def search_state(username, password, database, state_name):
         cursor = db.cursor()
 
         # Format and execute the query to retrieve matching states
-        query = "SELECT * FROM states WHERE name = %s ORDER BY states.id ASC"
-        cursor.execute(query, (state_name,))
+        query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format(
+            state_name)
+        cursor.execute(query)
 
         # Fetch all rows
         rows = cursor.fetchall()
