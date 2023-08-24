@@ -10,13 +10,13 @@ def list_cities_by_state(username, password, db_name, state_name):
         cursor = conn.cursor()
 
         # Execute the query
-        query = "SELECT cities.name FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s ORDER BY cities.id ASC"
+        query = "SELECT GROUP_CONCAT(cities.name ORDER BY cities.id ASC SEPARATOR ', ') FROM cities JOIN states ON cities.state_id = states.id WHERE states.name = %s"
         cursor.execute(query, (state_name,))
 
-        # Fetch and print the results
-        results = cursor.fetchall()
-        for row in results:
-            print(row[0])
+        # Fetch and print the result
+        result = cursor.fetchone()
+        if result[0]:
+            print(result[0])
 
     except MySQLdb.Error as e:
         print("MySQL Error:", e)
