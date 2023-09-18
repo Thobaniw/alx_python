@@ -1,51 +1,13 @@
-
-import MySQLdb
+#!/usr/bin/python3
+# Lists all states with a name starting with N from the database hbtn_0e_0_usa.
+# Usage: ./1-filter_states.py <mysql username> \
+#                             <mysql password> \
+#                             <database name>
 import sys
-
-
-def search_state(username, password, database, state_name):
-    try:
-        # Connect to the MySQL server
-        db = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database
-        )
-
-        # Create a cursor
-        cursor = db.cursor()
-
-        # Format and execute the query to retrieve matching states
-        query = "SELECT * FROM states WHERE name = '{}' ORDER BY states.id ASC".format(
-            state_name)
-        cursor.execute(query)
-
-        # Fetch all rows
-        rows = cursor.fetchall()
-
-        # Display the results
-        for row in rows:
-            print(row)
-
-        # Close the cursor and connection
-        cursor.close()
-        db.close()
-
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
-        sys.exit(1)
-
+import MySQLdb
 
 if __name__ == "__main__":
-    if len(sys.argv) != 5:
-        print("Usage: python script_name.py <username> <password> <database> <state_name>")
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-    state_name = sys.argv[4]
-
-    search_state(username, password, database, state_name)
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in c.fetchall() if state[1][0] == "N"]
