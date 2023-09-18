@@ -1,48 +1,17 @@
-import MySQLdb
+#!/usr/bin/python3
+# Lists all cities of the database hbtn_0e_4_usa, ordered by city id.
+# Usage: ./4-cities_by_state.py <mysql username> \
+#                               <mysql password> \
+#                               <database name>
 import sys
-
-
-def list_cities(username, password, database):
-    try:
-        # Connect to the MySQL server
-        db = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database
-        )
-
-        # Create a cursor
-        cursor = db.cursor()
-
-        # Execute the query to retrieve cities
-        query = "SELECT * FROM cities ORDER BY cities.id ASC"
-        cursor.execute(query)
-
-        # Fetch all rows
-        rows = cursor.fetchall()
-
-        # Display the results
-        for row in rows:
-            print(row)
-
-        # Close the cursor and connection
-        cursor.close()
-        db.close()
-
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
-        sys.exit(1)
-
+import MySQLdb
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: python script_name.py <username> <password> <database>")
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    list_cities(username, password, database)
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
+    c = db.cursor()
+    c.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` \
+                 FROM `cities` as `c` \
+                INNER JOIN `states` as `s` \
+                   ON `c`.`state_id` = `s`.`id` \
+                ORDER BY `c`.`id`")
+    [print(city) for city in c.fetchall()]
