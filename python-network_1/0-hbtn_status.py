@@ -1,15 +1,8 @@
 #!/usr/bin/python3
-""" Perform first http request"""
-import urllib.request
+import requests
 
+# Make a GET request to a URL
+response = requests.get("https://intranet.hbtn.io/status")
 
-if __name__ == "__main__":
-
-    URL = 'https://intranet.hbtn.io/status'
-    with urllib.request.urlopen(URL) as response:
-        html = response.read()
-
-    print("Body response:")
-    print("\t- type: {}".format(type(html)))
-    print("\t- content: {}".format(html))
-    print("\t- utf8 content: {}".format(html.decode('UTF-8')))
+# Print the status code of the response
+print("Status code:", response.status_code)
