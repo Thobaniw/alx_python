@@ -1,32 +1,15 @@
-import requests
-'''
-import the request to be able to access get
-'''
+#!/usr/bin/python3
+""" Perform first http request"""
+import urllib.request
 
 
-def fetch_and_display_status(url):
-    """
-    Fetches the status from the given URL and displays the response content.
+if __name__ == "__main__":
 
-    Args:
-        url (str): The URL to fetch the status from.
+    URL = 'https://intranet.hbtn.io/status'
+    with urllib.request.urlopen(URL) as response:
+        html = response.read()
 
-    Returns:
-        None
-    """
-    response = requests.get(url)
-
-    if response.status_code == 200:
-        data = response.json()
-        print("Body response:")
-        print("\t- type:", type(data))
-        print("\t- content:", data)
-    else:
-        print("Error:", response.status_code)
-
-
-# Define the URL you want to fetch
-url = "https://alu-intranet.hbtn.io/status"
-
-# Call the function to fetch and display the status
-fetch_and_display_status(url)
+    print("Body response:")
+    print("\t- type: {}".format(type(html)))
+    print("\t- content: {}".format(html))
+    print("\t- utf8 content: {}".format(html.decode('UTF-8')))
